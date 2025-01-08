@@ -24,4 +24,7 @@ logs/
 
 # Database
 data/
-*.sqlite 
+*.sqlite
+
+# Kong
+data/postgres/ 
