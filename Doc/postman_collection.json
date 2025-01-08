@@ -1,0 +1,202 @@
+{
+  "info": {
+    "name": "Kong API Gateway Tests",
+    "description": "Kong API Gateway 功能测试集合",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. 基础 API 测试",
+      "item": [
+        {
+          "name": "获取基础信息",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/api/info",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "info"]
+            }
+          }
+        },
+        {
+          "name": "获取用户列表",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/api/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "回显测试",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "http://localhost:8000/api/echo",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "echo"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"message\": \"Hello Kong\",\n    \"timestamp\": \"{{$timestamp}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. 认证测试",
+      "item": [
+        {
+          "name": "带认证的信息获取",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/api/info",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "info"]
+            },
+            "header": [
+              {
+                "key": "apikey",
+                "value": "demo-api-key",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "name": "未认证的信息获取",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/api/info",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "info"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Kong Admin API",
+      "item": [
+        {
+          "name": "获取服务列表",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8001/services",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8001",
+              "path": ["services"]
+            }
+          }
+        },
+        {
+          "name": "获取路由列表",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8001/routes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8001",
+              "path": ["routes"]
+            }
+          }
+        },
+        {
+          "name": "获取插件列表",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8001/plugins",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8001",
+              "path": ["plugins"]
+            }
+          }
+        },
+        {
+          "name": "获取消费者列表",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8001/consumers",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8001",
+              "path": ["consumers"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. 插件测试",
+      "item": [
+        {
+          "name": "速率限制测试",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/api/info",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "info"]
+            },
+            "header": [
+              {
+                "key": "apikey",
+                "value": "demo-api-key",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "name": "请求转换测试",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8000/api/info",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "info"]
+            },
+            "header": [
+              {
+                "key": "apikey",
+                "value": "demo-api-key",
+                "type": "text"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
