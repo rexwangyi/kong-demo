@@ -4,7 +4,7 @@
 
 ## 项目结构
 
-````
+```
 .
 ├── Doc/                    # 文档目录
 │   ├── installation.md     # 安装指南
@@ -16,6 +16,7 @@
 │   ├── package.json      # Node.js 项目配置
 │   └── Dockerfile        # API 服务容器配置
 └── docker-compose.yml     # Docker 编排配置文件
+```
 
 ## 功能特性
 
@@ -29,10 +30,11 @@
 ## 快速开始
 
 1. 克隆仓库：
+
    ```bash
-   git clone [repository-url]
+   git clone https://github.com/rexwangyi/kong-demo.git
    cd kong-demo
-````
+   ```
 
 2. 启动服务：
 
